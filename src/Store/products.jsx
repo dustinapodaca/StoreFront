@@ -56,7 +56,7 @@ const initialState = {
       inStock: 5,
     },
     {
-      name: 'succulent-1',
+      name: 'succulent-2',
       category: 'succulents',
       description:
         'Succulents are plants with fleshy, thickened leaves and/or swollen stems that store water. The word “succulent” comes from the Latin word sucus, meaning juice or sap. Succulents are able to survive on limited water resources, such as dew and mist, making them tolerant of drought.',
@@ -64,7 +64,7 @@ const initialState = {
       inStock: 5,
     },
     {
-      name: 'succulent-1',
+      name: 'succulent-3',
       category: 'succulents',
       description:
         'Succulents are plants with fleshy, thickened leaves and/or swollen stems that store water. The word “succulent” comes from the Latin word sucus, meaning juice or sap. Succulents are able to survive on limited water resources, such as dew and mist, making them tolerant of drought.',
