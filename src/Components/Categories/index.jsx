@@ -11,6 +11,7 @@ import ForestIcon from '@mui/icons-material/Forest';
 import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
 import GrassIcon from '@mui/icons-material/Grass';
 import { Typography } from '@mui/material';
+import { green } from '@mui/material/colors';
 
 const StyledBreadcrumb = styled(Chip)(({ theme }) => {
   const backgroundColor =
@@ -50,7 +51,6 @@ const Categories = (props) => {
           paddingBottom: "10px",
           backgroundColor: (theme) =>
             theme.palette.mode === "light"
-
               ? theme.palette.grey[100]
               : theme.palette.grey[600],
         }}
@@ -65,7 +65,7 @@ const Categories = (props) => {
               href="#"
               label="Bonsai Trees"
               name="bonsai-trees"
-              icon={<ForestIcon fontSize="small" />}
+              icon={<ForestIcon fontSize="small" sx={{ color: green[500] }} />}
               onClick={() => {
                 props.dispatch({ type: "ACTIVE", payload: "bonsai-trees" });
               }}
@@ -75,7 +75,9 @@ const Categories = (props) => {
               href="#"
               label="Indoor Plants"
               name="indoor-plants"
-              icon={<LocalFloristIcon fontSize="small" />}
+              icon={
+                <LocalFloristIcon fontSize="small" sx={{ color: green[500] }} />
+              }
               onClick={() => {
                 props.dispatch({ type: "ACTIVE", payload: "indoor-plants" });
               }}
@@ -86,7 +88,7 @@ const Categories = (props) => {
               label="Succulents"
               name="succulents"
               value="bonsai-trees"
-              icon={<GrassIcon fontSize="small" />}
+              icon={<GrassIcon fontSize="small" sx={{ color: green[500] }} />}
               onClick={() => {
                 props.dispatch({ type: "ACTIVE", payload: "succulents" });
               }}
