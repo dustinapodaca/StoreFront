@@ -13,5 +13,12 @@ const activeCategoryReducer = (state = initialState, action) => {
   }
 }
 
+// export const activeCategory = (category) => {
+//   return {
+//     type: "ACTIVE",
+//     payload: category,
+//   };
+// };
+
 export default activeCategoryReducer;
 

@@ -35,6 +35,7 @@ const StyledBreadcrumb = styled(Chip)(({ theme }) => {
 const mapStateToProps = (state) => {
   return {
     categories: state.categories,
+    products: state.products,
     activeCategory: state.activeCategory,
   };
 };
@@ -75,9 +76,7 @@ const Categories = (props) => {
               href="#"
               label="Indoor Plants"
               name="indoor-plants"
-              icon={
-                <LocalFloristIcon fontSize="small" sx={{ color: green[500] }} />
-              }
+              icon={<LocalFloristIcon fontSize="small" sx={{ color: green[500] }} />}
               onClick={() => {
                 props.dispatch({ type: "ACTIVE", payload: "indoor-plants" });
               }}
@@ -88,7 +87,7 @@ const Categories = (props) => {
               label="Succulents"
               name="succulents"
               value="bonsai-trees"
-              icon={<GrassIcon fontSize="small" sx={{ color: green[500] }} />}
+              icon={<GrassIcon fontSize="small" />}
               onClick={() => {
                 props.dispatch({ type: "ACTIVE", payload: "succulents" });
               }}

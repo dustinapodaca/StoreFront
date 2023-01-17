@@ -14,5 +14,3 @@ let storeReducers = combineReducers({
 export default function store() {
    return createStore(storeReducers, composeWithDevTools());
 }
-
-
