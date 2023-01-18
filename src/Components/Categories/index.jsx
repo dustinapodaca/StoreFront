@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import SimpleCart from '../SimpleCart';
 
 //MUI
 import { emphasize, styled } from "@mui/material/styles";
@@ -51,6 +52,11 @@ const Categories = (props) => {
           px: 2,
           pt: 3,
           width: "100%",
+          display: "flex",
+          justifyContent: "space-evenly",
+          flexDirection: "row",
+          alignItems: "center",
+          margin: "0 auto",
           paddingBottom: "10px",
           backgroundColor: (theme) =>
             theme.palette.mode === "light"
@@ -74,8 +80,13 @@ const Categories = (props) => {
                   sx={{ color: green[500], pl: "3px" }}
                 />
               }
+              sx={
+                props.activeCategory === "all"
+                  ? { color: "limegreen" }
+                  : { color: "white" }
+              }
               onClick={() => {
-                props.dispatch({ type: "RESET", payload: "all" });
+                props.dispatch({ type: "RESET"});
               }}
             />
             <StyledBreadcrumb
@@ -88,6 +99,11 @@ const Categories = (props) => {
                   fontSize="small"
                   sx={{ color: green[500], pl: "3px" }}
                 />
+              }
+              sx={
+                props.activeCategory === "bonsai-trees"
+                  ? { color: "limegreen" }
+                  : { color: "white" }
               }
               onClick={() => {
                 props.dispatch({ type: "ACTIVE", payload: "bonsai-trees" });
@@ -103,6 +119,11 @@ const Categories = (props) => {
                   fontSize="small"
                   sx={{ color: green[500], pl: "3px" }}
                 />
+              }
+              sx={
+                props.activeCategory === "indoor-plants"
+                  ? { color: "limegreen" }
+                  : { color: "white" }
               }
               onClick={() => {
                 props.dispatch({ type: "ACTIVE", payload: "indoor-plants" });
@@ -120,12 +141,18 @@ const Categories = (props) => {
                   sx={{ color: green[500], pl: "3px" }}
                 />
               }
+              sx={
+                props.activeCategory === "succulents"
+                  ? { color: "limegreen" }
+                  : { color: "white" }
+              }
               onClick={() => {
                 props.dispatch({ type: "ACTIVE", payload: "succulents" });
               }}
             />
           </Breadcrumbs>
         </Container>
+        <SimpleCart />
       </Box>
     </>
   );

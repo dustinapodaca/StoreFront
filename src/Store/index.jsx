@@ -3,12 +3,14 @@ import { composeWithDevTools } from '@redux-devtools/extension';
 import categoriesReducer from './categories.jsx';
 import productsReducer from './products.jsx';
 import activeCategoryReducer from './active-category.jsx';
+import cartReducer from './cart.jsx';
 
 let storeReducers = combineReducers({
   // reducers
   categories: categoriesReducer,
   products: productsReducer,
   activeCategory: activeCategoryReducer,
+  cart: cartReducer,
 });
 
 export default function store() {

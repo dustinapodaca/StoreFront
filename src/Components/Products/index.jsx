@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
 
+import { addToCart } from '../../Store/cart';
+
 //MUI
 // import { emphasize, styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -52,7 +54,7 @@ const Products = (props) => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">Add to Cart</Button>
+                  <Button onClick={() => addToCart(product)} size="small">Add to Cart</Button>
                 </CardActions>
               </Card>
             ))}
@@ -67,7 +69,14 @@ const mapStateToProps = (state) => {
   return {
     products: state.products,
     activeCategory: state.activeCategory,
+    cart: state.cart.cart,
   };
 }
 
-export default connect(mapStateToProps)(Products);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (product) => dispatch(addToCart(product)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);

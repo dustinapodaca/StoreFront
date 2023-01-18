@@ -1,13 +1,13 @@
-const initialState = {
-  activeCategory: '',
-};
+const initialState = 'all';
 
 const activeCategoryReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
     case "ACTIVE":
-      return { ...state, activeCategory: payload };
+      return payload;
+    case "RESET":
+      return initialState;
     default:
       return state;
   }
