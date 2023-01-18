@@ -12,9 +12,9 @@ const Footer = () => {
         sx={{
           py: 1,
           px: 2,
+          position: "fixed",
           bottom: 0,
           width: "100%",
-          position: "fixed",
           mt: "auto",
           backgroundColor: (theme) =>
             theme.palette.mode === "light"

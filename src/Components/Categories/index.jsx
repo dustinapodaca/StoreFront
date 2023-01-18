@@ -10,6 +10,7 @@ import Chip from "@mui/material/Chip";
 import ForestIcon from '@mui/icons-material/Forest';
 import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
 import GrassIcon from '@mui/icons-material/Grass';
+import StorefrontIcon from "@mui/icons-material/Storefront";
 import { Typography } from '@mui/material';
 import { green } from '@mui/material/colors';
 
@@ -48,6 +49,7 @@ const Categories = (props) => {
         sx={{
           py: 1,
           px: 2,
+          pt: 3,
           width: "100%",
           paddingBottom: "10px",
           backgroundColor: (theme) =>
@@ -64,9 +66,29 @@ const Categories = (props) => {
             <StyledBreadcrumb
               component="a"
               href="#"
+              label="All"
+              name="all"
+              icon={
+                <StorefrontIcon
+                  fontSize="small"
+                  sx={{ color: green[500], pl: "3px" }}
+                />
+              }
+              onClick={() => {
+                props.dispatch({ type: "RESET", payload: "all" });
+              }}
+            />
+            <StyledBreadcrumb
+              component="a"
+              href="#"
               label="Bonsai Trees"
               name="bonsai-trees"
-              icon={<ForestIcon fontSize="small" sx={{ color: green[500] }} />}
+              icon={
+                <ForestIcon
+                  fontSize="small"
+                  sx={{ color: green[500], pl: "3px" }}
+                />
+              }
               onClick={() => {
                 props.dispatch({ type: "ACTIVE", payload: "bonsai-trees" });
               }}
@@ -76,7 +98,12 @@ const Categories = (props) => {
               href="#"
               label="Indoor Plants"
               name="indoor-plants"
-              icon={<LocalFloristIcon fontSize="small" sx={{ color: green[500] }} />}
+              icon={
+                <LocalFloristIcon
+                  fontSize="small"
+                  sx={{ color: green[500], pl: "3px" }}
+                />
+              }
               onClick={() => {
                 props.dispatch({ type: "ACTIVE", payload: "indoor-plants" });
               }}
@@ -87,7 +114,12 @@ const Categories = (props) => {
               label="Succulents"
               name="succulents"
               value="bonsai-trees"
-              icon={<GrassIcon fontSize="small" />}
+              icon={
+                <GrassIcon
+                  fontSize="small"
+                  sx={{ color: green[500], pl: "3px" }}
+                />
+              }
               onClick={() => {
                 props.dispatch({ type: "ACTIVE", payload: "succulents" });
               }}

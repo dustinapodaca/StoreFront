@@ -23,6 +23,7 @@ const Products = (props) => {
           py: 1,
           px: 2,
           width: "100%",
+          pb: 15,
           backgroundColor: (theme) =>
             theme.palette.mode === "light"
               ? theme.palette.grey[100]

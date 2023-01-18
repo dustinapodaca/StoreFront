@@ -2,6 +2,7 @@ import React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import { Typography } from "@mui/material";
 
 const Header = () => {
   return (
@@ -20,7 +21,9 @@ const Header = () => {
         }}
       >
         <Container>
-          <h1>plant.space</h1>
+          <Typography variant="h4" component="h1">
+            <h1>🌱 plant.space</h1>
+          </Typography>
         </Container>
       </Box>
     </>
