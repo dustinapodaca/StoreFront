@@ -1,5 +1,4 @@
-const initialState = {
-  categories: [
+const initialState = [
     {
       name: 'bonsai-trees',
       displayName: 'Bonsai Trees',
@@ -17,10 +16,7 @@ const initialState = {
       displayName: 'Succulents',
       description:
         'Succulents are plants with fleshy, thickened leaves and/or swollen stems that store water. The word “succulent” comes from the Latin word sucus, meaning juice or sap. Succulents are able to survive on limited water resources, such as dew and mist, making them tolerant of drought.',
-    },
-  ],
-  activeCategory: '',
-};
+    }];
 
 const categoriesReducer = (state = initialState, action) => {
   const { type, payload } = action;
