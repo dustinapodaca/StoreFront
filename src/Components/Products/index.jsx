@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect } from "react-redux";
-
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../Store/cart';
 
 //MUI
@@ -14,9 +13,11 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import { Typography } from "@mui/material";
 
+const Products = () => {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
+  const activeCategory = useSelector((state) => state.activeCategory);
 
-const Products = (props) => {
-  const { products, activeCategory } = props;
   return (
     <>
       <Box
@@ -38,12 +39,12 @@ const Products = (props) => {
           </Typography>
           <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             {activeCategory && products.map((product) => (
-              <Card sx={{ maxWidth: 345, margin: "10px" }}>
+              <Card sx={{ maxWidth: 345, m: 1 }} key={product.id}>
                 {/* <CardMedia
                   component="img"
                   height="140"
-                  image={product.image}
-                  alt={product.name}
+                  image="https://source.unsplash.com/random"
+                  alt="green iguana"
                 /> */}
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
@@ -54,7 +55,7 @@ const Products = (props) => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button onClick={() => addToCart(product)} size="small">Add to Cart</Button>
+                  <Button onClick={() => dispatch(addToCart(product))} size="small">Add to Cart</Button>
                 </CardActions>
               </Card>
             ))}
@@ -65,18 +66,4 @@ const Products = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.products,
-    activeCategory: state.activeCategory,
-    cart: state.cart.cart,
-  };
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: (product) => dispatch(addToCart(product)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default Products;
