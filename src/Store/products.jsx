@@ -90,10 +90,26 @@ const productsReducer = (state = initialState, action) => {
       return initialState.filter(product => product.category === payload);
     case "RESET":
       return initialState
+    case "DECREMENT":
+      return state.map((product) => {
+        if (product.id === payload.id) {
+          return { ...product, inStock: product.inStock - 1 };
+        } else {
+          return product;
+        }
+      });
     default:
       return state;
   }
 }
+
+//action for decrementing stock when an item is added to the cart
+export const decrementStock = (product) => {
+  return {
+    type: "DECREMENT",
+    payload: product,
+  };
+};
 
 // export const reset = () => {
 //   return {
